@@ -1,22 +1,57 @@
-import React, { Component } from 'react';
-import { Container, Header, Tab, Tabs, ScrollableTab } from 'native-base';
-import Tab1 from './Screen/Tab1';
-import Tab2 from './Screen/Tab2';
+import React, { Component } from "react";
+import { StyleSheet } from 'react-native'
+import {
+  Container,
+  Header,
+  Title,
+  Content,
+  Button,
+  Item,
+  Input,
+  Body,
+  Left,
+  Right,
+  Icon,
+  Form,
+  Text
+} from "native-base";
 
-export default class App extends Component {
+class login extends React.Component {
   render() {
     return (
-      <Container>
-        <Header hasTabs/>
-        <Tabs renderTabBar={()=> <ScrollableTab />}>
-          <Tab heading="Tab1">
-            <Tab1 />
-          </Tab>
-          <Tab heading="Tab2">
-            <Tab2 />
-          </Tab>
-        </Tabs>
+      <Container style={styles.container}>
+        <Header>
+          <Body>
+            <Title>Login</Title>
+          </Body>
+          <Right />
+        </Header>
+
+        <Content>
+          <Form>
+            <Item>
+              <Input placeholder="Username" />
+            </Item>
+            <Item last>
+              <Input placeholder="Password" secureTextEntry />
+            </Item>
+          </Form>
+          <Button block style={{ margin: 15, marginTop: 50 }}>
+            <Text>Sign In</Text>
+          </Button>
+          <Button block style={{ margin: 15, marginTop: 10 }}>
+            <Text>Register</Text>
+          </Button>
+        </Content>
       </Container>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#FFF"
+  }
+});
+
+export default login;

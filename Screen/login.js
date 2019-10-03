@@ -16,7 +16,7 @@ import {
   Text
 } from "native-base";
 
-class App extends React.Component {
+class login extends React.Component {
   render() {
     return (
       <Container style={styles.container}>
@@ -38,6 +38,9 @@ class App extends React.Component {
           </Form>
           <Button block style={{ margin: 15, marginTop: 50 }}>
             <Text>Sign In</Text>
+          </Button>
+          <Button block>
+            <Text>Register</Text>
           </Button>
         </Content>
       </Container>
