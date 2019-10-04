@@ -1,57 +1,39 @@
-import React, { Component } from "react";
-import { StyleSheet } from 'react-native'
-import {
-  Container,
-  Header,
-  Title,
-  Content,
-  Button,
-  Item,
-  Input,
-  Body,
-  Left,
-  Right,
-  Icon,
-  Form,
-  Text
-} from "native-base";
+import * as React from 'react';
+import { Button, View, Text } from 'react-native';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import  Test  from './Test';
+import login from './Screen/login';
+import register from './Screen/register';
 
-class login extends React.Component {
+class HomeScreen extends React.Component {
+    static navigationOptions = {
+        title: 'Home',
+      }
+      
   render() {
     return (
-      <Container style={styles.container}>
-        <Header>
-          <Body>
-            <Title>Login</Title>
-          </Body>
-          <Right />
-        </Header>
-
-        <Content>
-          <Form>
-            <Item>
-              <Input placeholder="Username" />
-            </Item>
-            <Item last>
-              <Input placeholder="Password" secureTextEntry />
-            </Item>
-          </Form>
-          <Button block style={{ margin: 15, marginTop: 50 }}>
-            <Text>Sign In</Text>
-          </Button>
-          <Button block style={{ margin: 15, marginTop: 10 }}>
-            <Text>Register</Text>
-          </Button>
-        </Content>
-      </Container>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Home Screen</Text>
+        <Button
+          title="Go to Details"
+          onPress={() => this.props.navigation.navigate('Details')}
+        />
+      </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#FFF"
-  }
-});
 
-export default login;
+
+const RootStack = createStackNavigator({
+  login : login,
+  Home: HomeScreen,
+  Details: Test,
+  register : register,
+}, {
+    initialRouteName: 'login',
+}
+    );
+
+export default createAppContainer(RootStack);

@@ -36,10 +36,10 @@ class login extends React.Component {
               <Input placeholder="Password" secureTextEntry />
             </Item>
           </Form>
-          <Button block style={{ margin: 15, marginTop: 50 }}>
+          <Button block style={{ margin: 15, marginTop: 50 }} onPress={()=> this.props.navigation.navigate('Details')}>
             <Text>Sign In</Text>
           </Button>
-          <Button block>
+          <Button block style={{ margin: 15, marginTop: 10 }} onPress={()=> this.props.navigation.navigate('register')}>
             <Text>Register</Text>
           </Button>
         </Content>
@@ -54,4 +54,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default App;
+export default login;
